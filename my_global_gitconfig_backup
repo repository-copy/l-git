@@ -1,4 +1,7 @@
-## Копия глобального файла /home/tolik/.gitconfig
+## Копия конфига для текущего юзера /home/tolik/.gitconfig
+## ~/.gitconfig or ~/.config/git/config file: Values specific personally to you, the user. You can
+## make Git read and write to this file specifically by passing the --global option, and this affects
+## all of the repositories you work with on your system.
 [user]
 	email = tolik.demianov@gmail.com
 	name = Tolik Dem
