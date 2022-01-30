@@ -1,0 +1,61 @@
+####################################################
+# Here's what you need to do to change the scroll speed of the mouse wheel if your desktop environment doesn't have an option for this:
+#
+### 1. Install imwheel.
+# sudo apt-get install imwheel
+#
+### 2. Create a file called ".imwheelrc" with your preferred way
+# gedit ~/.imwheelrc
+#
+# And in this file, paste the following:
+# ".*"
+# None,      Up,   Button4, 3
+# None,      Down, Button5, 3
+# Control_L, Up,   Control_L|Button4
+# Control_L, Down, Control_L|Button5
+# Shift_L,   Up,   Shift_L|Button4
+# Shift_L,   Down, Shift_L|Button5
+#
+# "3" at the end of lines two and three represent the number of lines to scroll
+# ("3" should be default) - modify this number to suit your needs. Once you're done, save the file.
+#
+# The first (".*") line from the code used above represents is used to specify in
+# which applications to use those settings. ".*" means everywhere,
+# but you can also apply application-specific settings by changing ".*" to the window name (and add multiple application-dependent settings).
+# Run "man imwheel" for more information.
+#
+# And finally, the last 4 lines in the code above are there to allow Ctrl / Shift with mouse scroll wheel up / down
+# to work (for instance, to allow zooming in on a webpage in the web browser, etc.), which is the default behaviour
+#
+### 3. Start imwheel (type "imwheel --kill" in a terminal). "--kill" is used to make sure other running instances are terminated,
+# so they don't interfere. This is important for a proper setup (another way to make sure imwheel is not running is to just use "killalll imwheel").
+#
+# Also, if you have back / forward navigation buttons on your mouse,
+# they will stop working using the configuration we've used above.
+# In such cases, you should launch imwheel like this: imwheel --kill --buttons "4 5"
+# and the back / forward buttons should work
+#
+### 4. Since these settings are only applied when imwheel is running, you should add imwheel to startup
+# Also, like I mentioned above, if you have back / forward mouse navigation buttons,
+# use the following command instead of simply running "imwheel --kill"
+# or else those buttons won't work: imwheel --kill --buttons "4 5"
+#
+# It's important to mention that imwheel applies the settings available in ~/.imwheelrc when the application starts
+# and it doesn't update when changing the configuration file.
+# So if you modify the configuration file, you'll need to close imwheel
+# and start it again to apply / test the changes (you can close/kill it using the following command: "killall imwheel" or run new instances with "--kill").
+#
+# Notes:
+# - this will most probably not fix issues such as very fast scrolling, if you encounter such an issue,
+# you can try unplugging and then plugging the mouse back (from what I've read, that seems to solve the issue in most cases);
+# - if you only want to change the scroll wheel speed in Firefox and Chrome,
+# you can do this from within the app or using an extension: Firefox | Chrome, etc.
+####################################################
+
+".*"
+None,      Up,   Button4, 5
+None,      Down, Button5, 5
+Control_L, Up,   Control_L|Button4
+Control_L, Down, Control_L|Button5
+Shift_L,   Up,   Shift_L|Button4
+Shift_L,   Down, Shift_L|Button5
